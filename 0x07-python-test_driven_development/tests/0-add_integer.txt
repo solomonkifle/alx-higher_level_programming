@@ -1,0 +1,86 @@
+====================================================================
+                                                                   =
+Generating Test Cases for ``0-add_integer`` module.                =
+                                                                   =
+====================================================================
+
+====================================================================
+                                                                   =
+File: 0-add_integer.txt                                            =
+Desc: This file contains most possible edge cases for the function =
+      ``add_integer`` in the ``0-add_integer`` module              =
+Author: Gizachew Bayness (Elec Crazy)                              =
+Date Created: Jul 23 2022                                          =
+                                                                   =
+====================================================================
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+Let's test the function for both integer and floating point numbers
+for both negative and positive cases. Note that the funtion casts
+floating point numbers to integers before computing.
+
+>>> print(add_integer(1, 2))
+3
+>>> print(add_integer(1.7, 3))
+4
+>>> print(add_integer(0.8, 8.8))
+8
+>>> print(add_integer(-7, 9))
+2
+>>> print(add_integer(-2, -8))
+-10
+>>> print(add_integer(0, -2.89))
+-2
+>>> print(add_integer(1.78, -0.78))
+1
+
+
+Let's test the function with the second argument as optional, it
+has a default value as 98
+
+>>> print(add_integer(3))
+101
+>>> print(add_integer(0))
+98
+
+
+Let's test the function with non-integer or non-floating types. Note that
+the funtion expects either floating point or integer, otherwise it raises
+a TypeError exception.
+
+>>> print(add_integer(3, "Elec Crazy"))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+>>> print(add_integer("G", 77))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> print(add_integer([1, 2]))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> print(add_integer(None, None))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> print(add_integer(546, None))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+Let's test the function for float NaN and float overflow.
+The function raises a value error exception for float NaN
+and Overflow exception for flaot inf input.
+
+>>> print(add_integer(-5, float('inf')))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> print(add_integer(float('nan')))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
