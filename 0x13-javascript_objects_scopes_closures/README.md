@@ -1,1 +1,1 @@
-yyssg
+# `Javascript - Objects, Scopes and Closures`
